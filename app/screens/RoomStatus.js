@@ -9,6 +9,44 @@ function RoomStatus({navigation}) {
                 Room Structure changed 
             </Text>
            </View>
+           <View style={styles.Body}>
+
+               <View style={styles.vipSection}>
+                   <Text>VIP section</Text>
+                   <View style={styles.vipCard}>
+                    <View style={styles.cardElement}>
+                        <Text> Room1  </Text>
+                        <Text>AC  |  Single </Text>
+
+                    </View>
+                    <View style={styles.cardElement}>
+                        <Text> Room1  </Text>
+                        <Text>AC  |  Single </Text>
+
+                    </View>
+                    <View style={styles.cardElement}>
+                        <Text> Room3  </Text>
+                        <Text>AC  |  Single </Text>
+
+                    </View>
+                   </View>
+                </View>
+                <View style={styles.nonvipSection}>
+                   <Text>Non VIP</Text>
+                   <View style={styles.vipCard}>
+                   <Text>VIP section</Text>
+                   <Text>VIP section</Text>
+                   </View>
+                </View>
+                <View style={styles.hallSection}>
+                   <Text>Confarence</Text>
+                   <View style={styles.vipCard}>
+                   <Text>VIP section</Text>
+                   <Text>VIP section</Text>
+                   </View>
+                </View>
+
+           </View>
            
 
          
@@ -19,6 +57,12 @@ function RoomStatus({navigation}) {
                     </Text>
                     
                 </TouchableOpacity> 
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => navigation.navigate('Details')}
+                >
+                    <Text style={styles.roomText}>AC1 single</Text>
+                </TouchableOpacity>
             </View>
        </View>
     );
@@ -30,49 +74,49 @@ const styles = StyleSheet.create({
 
     },
     Header:{
-        flex: .20,
+        flex: .15,
         backgroundColor: '#a3d9c9',
         justifyContent:'center',
         alignItems:'center'
 
     },
     Body:{
-        flex: 1,
-        backgroundColor: '#6a5acd'
+        flex: .60,
+        backgroundColor: '#6a5acd',
+        justifyContent:'center',
+        alignItems:'center'
 
     },
-    firstFloor:{
-        flex: 1.5,
-        backgroundColor: '#7cd9b4',
+    vipSection:{
+        flex: 1,
+        justifyContent:'center',
+        alignItems:'flex-start',
+        
+    },
+    vipCard:{
+        flexDirection:'row'
+
+    },
+    nonvipSection:{
+        flex: 1,
+    },
+    hallSection:{
+        flex: 1,
+
+    },
+    cardElement:{
+
+        backgroundColor:'#EC33FF',
+        borderRadius:30,
+        margin:5,
         justifyContent:'center',
         alignItems:'center',
-        
-
+        width: 120
     },
     
-        
-
-    
-    roomText:{
-        fontSize:25,
-        padding:10,
-        // color:'#f36374',
-        color:'#0f420a',
-        fontWeight:'bold'
-        
-        
-
-    },
-    secondFloor:{
-        flex: 1,
-        backgroundColor: '#9ad88e',
-        justifyContent:'center',
-        alignItems:'center',
-
-    },
     Footer:{
 
-        flex: .15,
+        flex: .25,
         backgroundColor: '#a3d9c9',
         justifyContent:'center',
         alignItems:'center'
