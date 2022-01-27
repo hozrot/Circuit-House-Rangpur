@@ -6,79 +6,12 @@ function RoomStatus({navigation}) {
         <View style={styles.Container}>
            <View style={styles.Header}>
             <Text style={{fontSize: 20, fontWeight: '800'}}>
-                Room Structure
+                Room Structure changed 
             </Text>
            </View>
-           <View style={styles.Body}>
-               <View  style={styles.firstFloor}>
-               <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate('Details')}
-                >
-                    <Text style={styles.roomText}>AC1 single</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}>AC2 single</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}>AC3 Double</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}>AC4 Double</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}>N1 Double</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}> VIP </Text>
-                </TouchableOpacity>
+           
 
-               </View>
-               <View  style={styles.secondFloor}>
-               <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}>N2 single</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}>N3 single</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}>N4 Double</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={onPress}
-                >
-                    <Text style={styles.roomText}>N5 Double</Text>
-                </TouchableOpacity>
-                
-
-               </View>
-
-           </View>
+         
            <View style={styles.Footer}>
                 <TouchableOpacity onPress={() => navigation.navigate('Entry')}>
                     <Text style={styles.FooterText} >
