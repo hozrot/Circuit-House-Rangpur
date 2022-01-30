@@ -11,7 +11,7 @@ function RoomEntry({props}) {
        
             <View style={styles.Container}>
             <View style={styles.Header}>
-                <Text style={styles.HeaderText}>  Check In  Form </Text>
+                <Text style={styles.HeaderText}>  Room Entry  Form </Text>
             </View>
             <View style={styles.Body}>
                 <View style={styles.FormElement} >
