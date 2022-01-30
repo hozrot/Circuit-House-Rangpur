@@ -52,7 +52,7 @@ function RoomStatus({navigation}) {
                       
 
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.cardElement}
+                    {/* <TouchableOpacity style={styles.cardElement}
                     onPress={() => navigation.navigate('Details')}>
                         <View style={styles.cardHeader}>
                             <Text> Room 4  </Text> 
@@ -63,7 +63,7 @@ function RoomStatus({navigation}) {
                         </View>
                       
 
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                    </View>
                    </ScrollView>
                 </View>

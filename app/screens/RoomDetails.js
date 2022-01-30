@@ -12,6 +12,7 @@ function RoomDetails({navigation}) {
         
             <Image  style={styles.image}
                 source={require('../assets/test.jpg')}/>
+
         
             </View>
             <View style={styles.config}>
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
     },
     Header:{
         flex: .05,
-        backgroundColor: '#c9a0dc',
+        backgroundColor: '#a3d9c9',
         justifyContent:'center',
         alignItems:'center'
     },
@@ -101,13 +102,13 @@ const styles = StyleSheet.create({
         width: '100%',
         height: '100%',
         resizeMode: 'contain',
-        backgroundColor:'#c9a0dc',
+        backgroundColor:'#a3d9c9',
        
         
     },
     config:{
         flex: .10,
-        backgroundColor: '#c9a0dc',
+        backgroundColor: '#a3d9c9',
         justifyContent:'center',
         alignItems:'center',
         flexDirection:'row',
@@ -125,7 +126,7 @@ const styles = StyleSheet.create({
     },
     furniture:{
         flex: .15,
-        backgroundColor:'#c9a0dc'
+        backgroundColor:'#a3d9c9'
         
         
     },
@@ -143,7 +144,7 @@ const styles = StyleSheet.create({
     },
     costing:{
         flex: .45,
-        backgroundColor: '#c9a0dc',
+        backgroundColor: '#a3d9c9',
         
     },
     
