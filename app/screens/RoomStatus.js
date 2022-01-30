@@ -1,35 +1,71 @@
 import React from 'react';
-import { View ,Text,Button,StyleSheet, TouchableOpacity,onPress} from 'react-native';
+import { View ,Text,Button,StyleSheet, TouchableOpacity,onPress, ScrollView} from 'react-native';
 
 function RoomStatus({navigation}) {
     return (
         <View style={styles.Container}>
            <View style={styles.Header}>
             <Text style={{fontSize: 20, fontWeight: '800'}}>
-                Room Structure changed 
+                Avaiable Accomodation  
             </Text>
            </View>
            <View style={styles.Body}>
 
                <View style={styles.vipSection}>
-                   <Text>VIP section</Text>
+                   
+                   <Text style={{fontWeight:'600', fontStyle:'italic',fontSize:20,paddingLeft:15}}>VIP Rooms : </Text>
+                   <ScrollView horizontal>
                    <View style={styles.vipCard}>
-                    <View style={styles.cardElement}>
-                        <Text> Room1  </Text>
-                        <Text>AC  |  Single </Text>
+                    <TouchableOpacity style={styles.cardElement}
+                    onPress={() => navigation.navigate('Details')}>
+                        <View style={styles.cardHeader}>
+                            <Text> Room 1  </Text> 
+                        </View>
+                        <View style={styles.roomConfig}>
+                        <Text >AC  </Text>
+                        <Text>Single </Text>
+                        </View>
+                      
 
-                    </View>
-                    <View style={styles.cardElement}>
-                        <Text> Room1  </Text>
-                        <Text>AC  |  Single </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.cardElement}
+                    onPress={() => navigation.navigate('Details')}>
+                        <View style={styles.cardHeader2}>
+                            <Text> Room 2  </Text> 
+                        </View>
+                        <View style={styles.roomConfig}>
+                        <Text >AC  </Text>
+                        <Text>Single </Text>
+                        </View>
+                      
 
-                    </View>
-                    <View style={styles.cardElement}>
-                        <Text> Room3  </Text>
-                        <Text>AC  |  Single </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.cardElement}
+                    onPress={() => navigation.navigate('Details')}>
+                        <View style={styles.cardHeader}>
+                            <Text> Room 3 </Text> 
+                        </View>
+                        <View style={styles.roomConfig}>
+                        <Text > AC  </Text>
+                        <Text> Double </Text>
+                        </View>
+                      
 
-                    </View>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.cardElement}
+                    onPress={() => navigation.navigate('Details')}>
+                        <View style={styles.cardHeader}>
+                            <Text> Room 4  </Text> 
+                        </View>
+                        <View style={styles.roomConfig}>
+                        <Text > Non AC  </Text>
+                        <Text> Single </Text>
+                        </View>
+                      
+
+                    </TouchableOpacity>
                    </View>
+                   </ScrollView>
                 </View>
                 <View style={styles.nonvipSection}>
                    <Text>Non VIP</Text>
@@ -73,8 +109,28 @@ const styles = StyleSheet.create({
         backgroundColor: '#a3d9c9'
 
     },
+    cardHeader:{
+        justifyContent:'center',
+        alignItems:'center',
+        width:'100%',
+        backgroundColor:'#7CFC00',// red #D22B2B 
+        height:'30%',
+        flex:.30
+
+
+    },
+    cardHeader2:{
+        justifyContent:'center',
+        alignItems:'center',
+        width:'100%',
+        backgroundColor:'#D22B2B',// red #D22B2B 
+        height:'30%',
+        flex:.30
+
+
+    },
     Header:{
-        flex: .15,
+        flex: .10,
         backgroundColor: '#a3d9c9',
         justifyContent:'center',
         alignItems:'center'
@@ -82,9 +138,17 @@ const styles = StyleSheet.create({
     },
     Body:{
         flex: .60,
-        backgroundColor: '#6a5acd',
+       
         justifyContent:'center',
         alignItems:'center'
+
+    },
+    
+    roomConfig:{
+        
+        justifyContent:'flex-end',
+        alignItems:'center',
+        flex: .75
 
     },
     vipSection:{
@@ -92,9 +156,16 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'flex-start',
         
+        
+        
     },
     vipCard:{
-        flexDirection:'row'
+        flexDirection:'row',
+        height:'80%',
+        left:10,
+        right:10,
+        
+        
 
     },
     nonvipSection:{
@@ -106,12 +177,12 @@ const styles = StyleSheet.create({
     },
     cardElement:{
 
-        backgroundColor:'#EC33FF',
-        borderRadius:30,
+        backgroundColor:'#50C878',
+        borderRadius:5,
         margin:5,
-        justifyContent:'center',
-        alignItems:'center',
-        width: 120
+        overflow:'hidden',
+        width: 80,
+        paddingBottom:5
     },
     
     Footer:{
