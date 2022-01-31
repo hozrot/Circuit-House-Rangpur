@@ -1,13 +1,15 @@
 import React from 'react';
 import { View ,Text,Button,StyleSheet, TouchableOpacity,onPress, ScrollView} from 'react-native';
+import RoomCard from '../component/RoomCard';
+import AppButton from '../component/AppButton';
 
 function RoomStatus({navigation}) {
     return (
         <View style={styles.Container}>
            <View style={styles.Header}>
-            <Text style={{fontSize: 20, fontWeight: '800'}}>
-                Avaiable Accomodation  
-            </Text>
+                <Text style={{fontSize: 20, fontWeight: '800',paddingBottom:15}}>
+                    Avaiable Accomodation  
+                </Text>
            </View>
            <View style={styles.Body}>
 
@@ -15,91 +17,88 @@ function RoomStatus({navigation}) {
                    
                    <Text style={{fontWeight:'600', fontStyle:'italic',fontSize:20,paddingLeft:15}}>VIP Rooms : </Text>
                    <ScrollView horizontal>
-                   <View style={styles.vipCard}>
-                    <TouchableOpacity style={styles.cardElement}
-                    onPress={() => navigation.navigate('Details')}>
-                        <View style={styles.cardHeader}>
-                            <Text> Room 1  </Text> 
+                        <View style={styles.CardSection}>
+                                
+                                            <RoomCard RoomName={'Room 1'}
+                                                    AcConfig={"AC"}
+                                                    CapasityConfig={'Double'}/>
+                                
+                                            <RoomCard RoomName={'Room 2'}
+                                                    AcConfig={" AC"}
+                                                    CapasityConfig={'Single'}/>
+                               
+                                            <RoomCard RoomName={'Room 3'}
+                                                    AcConfig={"AC"}
+                                                    CapasityConfig={'Single'}/>
+                           
+                                
+                                
                         </View>
-                        <View style={styles.roomConfig}>
-                        <Text >AC  </Text>
-                        <Text>Single </Text>
-                        </View>
-                      
-
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.cardElement}
-                    onPress={() => navigation.navigate('Details')}>
-                        <View style={styles.cardHeader2}>
-                            <Text> Room 2  </Text> 
-                        </View>
-                        <View style={styles.roomConfig}>
-                        <Text >AC  </Text>
-                        <Text>Single </Text>
-                        </View>
-                      
-
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.cardElement}
-                    onPress={() => navigation.navigate('Details')}>
-                        <View style={styles.cardHeader}>
-                            <Text> Room 3 </Text> 
-                        </View>
-                        <View style={styles.roomConfig}>
-                        <Text > AC  </Text>
-                        <Text> Double </Text>
-                        </View>
-                      
-
-                    </TouchableOpacity>
-                    {/* <TouchableOpacity style={styles.cardElement}
-                    onPress={() => navigation.navigate('Details')}>
-                        <View style={styles.cardHeader}>
-                            <Text> Room 4  </Text> 
-                        </View>
-                        <View style={styles.roomConfig}>
-                        <Text > Non AC  </Text>
-                        <Text> Single </Text>
-                        </View>
-                      
-
-                    </TouchableOpacity> */}
-                   </View>
                    </ScrollView>
                 </View>
                 <View style={styles.nonvipSection}>
-                   <Text>Non VIP</Text>
-                   <View style={styles.vipCard}>
-                   <Text>VIP section</Text>
-                   <Text>VIP section</Text>
-                   </View>
+                   
+                   <Text style={{fontWeight:'600', fontStyle:'italic',fontSize:20,paddingLeft:15}}>Non VIP Rooms : </Text>
+                   <ScrollView horizontal>
+                        <View style={styles.CardSection}>
+                                
+                                            <RoomCard RoomName={'Room 21'}
+                                                    AcConfig={"Non AC"}
+                                                    CapasityConfig={'Double1'}
+                                                    onPress={() => navigation.navigate('Details')}/>
+                               
+                                            <RoomCard RoomName={'Room 22'}
+                                                    AcConfig={"Non AC"}
+                                                    CapasityConfig={'Double'}/>
+                                
+                                            <RoomCard RoomName={'Room 23'}
+                                                    AcConfig={"Non AC"}
+                                                    CapasityConfig={'Double'}/>
+                                
+                                            <RoomCard RoomName={'Room 24'}
+                                                    AcConfig={"Non AC"}
+                                                    CapasityConfig={'Double'}/>
+                               
+                               
+                                            <RoomCard RoomName={'Room 25'}
+                                                    AcConfig={"Non AC"}
+                                                    CapasityConfig={'Double'}/>
+                                
+                                            <RoomCard RoomName={'Room 26'}
+                                                    AcConfig={"Non AC"}
+                                                    CapasityConfig={'Double'}/>
+                               
+                                
+                        </View>
+                   </ScrollView>
                 </View>
                 <View style={styles.hallSection}>
-                   <Text>Confarence</Text>
-                   <View style={styles.vipCard}>
-                   <Text>VIP section</Text>
-                   <Text>VIP section</Text>
-                   </View>
+                   
+                   <Text style={{fontWeight:'600', fontStyle:'italic',fontSize:20}}>Confarence Rooms : </Text>
+                   <ScrollView horizontal>
+                        
+                               
+                                            <RoomCard RoomName={' Room 10 '}
+                                                    AcConfig={"Non AC"}
+                                                    CapasityConfig={'Hall'}/>
+                                                     <RoomCard RoomName={'Room 11 '}
+                                                    AcConfig={"AC"}
+                                                    CapasityConfig={'Hall'}/>
+                               
+                                            
+                              
+                               
+                                
+                        
+                   </ScrollView>
                 </View>
 
            </View>
-           
-
-         
+                   
            <View style={styles.Footer}>
-                <TouchableOpacity onPress={() => navigation.navigate('Entry')}>
-                    <Text style={styles.FooterText} >
-                        Book A Room 
-                    </Text>
-                    
-                </TouchableOpacity> 
-                <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => navigation.navigate('Details')}
-                >
-                    <Text style={styles.roomText}>AC1 single</Text>
-                </TouchableOpacity>
-            </View>
+                    <AppButton ButtonName={"Book A Room"}  onPress={() => navigation.navigate('Entry')}/>
+                
+           </View>
        </View>
     );
 }
@@ -119,60 +118,52 @@ const styles = StyleSheet.create({
 
 
     },
-    cardHeader2:{
-        justifyContent:'center',
-        alignItems:'center',
-        width:'100%',
-        backgroundColor:'#D22B2B',// red #D22B2B 
-        height:'30%',
-        flex:.30
-
-
-    },
+    
     Header:{
-        flex: .10,
+        flex: .05,
         backgroundColor: '#a3d9c9',
         justifyContent:'center',
         alignItems:'center'
 
     },
     Body:{
-        flex: .60,
+        flex: 0.80,
        
         justifyContent:'center',
         alignItems:'center'
 
     },
-    
-    roomConfig:{
-        
-        justifyContent:'flex-end',
-        alignItems:'center',
-        flex: .75
+    Footer:{
 
+        flex: .15,
+        
+        justifyContent:'center',
+        alignItems:'center',
+        
     },
+    
     vipSection:{
         flex: 1,
         justifyContent:'center',
         alignItems:'flex-start',
         
         
-        
     },
-    vipCard:{
+    CardSection:{
         flexDirection:'row',
-        height:'80%',
+        height:'100%',
         left:10,
         right:10,
-        
-        
-
     },
     nonvipSection:{
         flex: 1,
+        justifyContent:'center',
+        alignItems:'flex-start',
     },
     hallSection:{
         flex: 1,
+        justifyContent:'center',
+        alignItems:'flex-start',
 
     },
     cardElement:{
@@ -185,20 +176,9 @@ const styles = StyleSheet.create({
         paddingBottom:5
     },
     
-    Footer:{
-
-        flex: .25,
-        backgroundColor: '#a3d9c9',
-        justifyContent:'center',
-        alignItems:'center'
-    },
+    
    
-    FooterText:{
-       fontSize: 30,
-       fontWeight:'bold'
-        
-      
-    },
+   
     
 })
 
