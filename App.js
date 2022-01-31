@@ -6,6 +6,7 @@ import RoomDetails from './app/screens/RoomDetails';
 import RoomEntry from './app/screens/RoomEntry';
 import RoomRecord from './app/screens/RoomRecord';
 import CheckOut from './app/screens/CheckOut';
+import RoomCard from './app/component/RoomCard';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Screen name="Entry" component={RoomEntry}/>
         <Stack.Screen name="Record" component={RoomRecord}/>
         <Stack.Screen name="CheckOut" component={CheckOut}/>
+        <Stack.Screen name="card" component={RoomCard}/>
        
         
       </Stack.Navigator>

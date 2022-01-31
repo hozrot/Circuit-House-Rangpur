@@ -1,44 +1,48 @@
 import React from 'react';
-
-function RoomCard(props) {
+import { Text, View,StyleSheet,TouchableOpacity} from 'react-native';
+function RoomCard({RoomName,AcConfig,CapasityConfig,onPress}) {
     return (
-        <TouchableOpacity style={styles.cardElement}>
-        <View style={styles.cardHeader}>
-            <Text> Room 1  </Text> 
-        </View>
-        <View style={styles.roomConfig}>
-        <Text >AC  </Text>
-        <Text>Single </Text>
-        </View>
-      
+        <TouchableOpacity style={styles.Container} onPress={onPress}>
+            <View style={styles.cardHeader}>
+                <Text> {RoomName}  </Text> 
+            </View>
+            <View style={styles.roomConfig}>
+                <Text >{AcConfig}  </Text>
+                <Text>{CapasityConfig} </Text>
+            </View>
+    
 
     </TouchableOpacity>
     );
 }
 const styles = StyleSheet.create({
+    Container:{
+        flex:1,
+        borderRadius:5,
+        margin:5,
+        overflow:'hidden',
+        width: 80,
+        
+
+    },
     cardHeader:{
         justifyContent:'center',
         alignItems:'center',
         width:'100%',
         backgroundColor:'#7CFC00',
         height:'30%',
-        flex:.30
+        flex:.25
 
 
     },
-    cardElement:{
-
-        backgroundColor:'#50C878',
-        borderRadius:5,
-        margin:5,
-        overflow:'hidden',
-        width: 80
-    },
+    
     roomConfig:{
         
         justifyContent:'flex-end',
         alignItems:'center',
-        flex: .75
+        flex: .75,
+        backgroundColor:'#50C878',
+        paddingBottom:10
 
     },
 })
