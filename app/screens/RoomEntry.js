@@ -15,7 +15,9 @@ function RoomEntry({navigation}) {
                
             <ScrollView style={styles.Container}>
             <View style={styles.Header}>
+
                 <Text style={styles.HeaderText}>  Room Name </Text>
+
             </View>
             <View style={styles.Body}>
                 <View style={styles.timeEntry}>
