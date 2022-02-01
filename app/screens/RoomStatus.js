@@ -3,6 +3,7 @@ import { View ,Text,Button,StyleSheet, TouchableOpacity,onPress, ScrollView} fro
 import RoomCard from '../component/RoomCard';
 import AppButton from '../component/AppButton';
 
+
 function RoomStatus({navigation}) {
     return (
         <View style={styles.Container}>
@@ -97,7 +98,6 @@ function RoomStatus({navigation}) {
                    
            <View style={styles.Footer}>
                     <AppButton ButtonName={"Book A Room"}  onPress={() => navigation.navigate('Entry')}/>
-                
            </View>
        </View>
     );
