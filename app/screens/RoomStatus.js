@@ -28,9 +28,10 @@ function RoomStatus({navigation}) {
                                                     AcConfig={" AC"}
                                                     CapasityConfig={'Single'}/>
                                
-                                            <RoomCard RoomName={'Room 3'}
-                                                    AcConfig={"AC"}
-                                                    CapasityConfig={'Single'}/>
+                                            <RoomCard 
+                                                RoomName={'Room 3'}
+                                                AcConfig={"AC"}
+                                                CapasityConfig={'Single'}/>
                            
                                 
                                 

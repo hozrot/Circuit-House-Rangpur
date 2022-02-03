@@ -1,13 +1,11 @@
 
 import React ,{ useState } from 'react';
-import { Text,View,StyleSheet,Button, TextInput ,ScrollView,Platform,KeyboardAvoidingView, DatePickerIOSBase} from 'react-native';
+import { Text,View,StyleSheet,Button ,ScrollView,KeyboardAvoidingView} from 'react-native';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 import NumericInput from 'react-native-numeric-input'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppInputText from '../component/AppInputText';
-
-
 
 const Stack = createNativeStackNavigator();
 
@@ -85,37 +83,36 @@ function RoomEntry({navigation}) {
                 </View>
                 </View>
                 <View style={styles.GuestEntry} >
-                
-    
                     <Text style={styles.BodyText}>
                     Number of Guest : 
                     </Text>
-                    <NumericInput minValue={1} onChange={value => console.log(value)} />
-                        
+                    <NumericInput minValue={1} onChange={value => console.log(value)} />    
                 </View>
-                <View style={styles.FormElement} >
+
+                    <View style={styles.FormElement} >
     
-                    <Text style={styles.BodyText}>
-                    Guest Details :
-                    </Text>
+                        <Text style={styles.BodyText}>
+                        Guest Details :
+                        </Text>
                
-                    <View style={styles.guestDetalis}>
-  
                         <AppInputText  icon='home'
-                        placeholder="Guest Full Name"/>
-                    </View>
+                        placeholder="Guest Full Name"
+                        color='#6a5acd'
+                        />
+                   
                         <AppInputText  icon='home'
                         placeholder="Office Address"/>
-                        
-                        <AppInputText  icon='home'
-                        placeholder="Phone no."/>         
-                    
 
                         <AppInputText  icon='home'
+                        placeholder="Phone no."
+                        returnKeyType={(Platform.OS === 'ios') ? 'done' : 'next'}
+                        keyboardType={'phone-pad'}
+                        />         
+                    
+                        <AppInputText  icon='home'
                         placeholder="Details "/>          
-                   
                 
-                </View>
+                 </View>
                 
                
                
@@ -207,6 +204,8 @@ function RoomEntry({navigation}) {
         FormElement:{
             flex: 1,
             margin:10
+
+            
         },
         BodyText:{
             fontWeight:'bold',
