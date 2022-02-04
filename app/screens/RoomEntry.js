@@ -30,7 +30,7 @@ function RoomEntry({navigation}) {
                         style={styles.input}
                         placeholder="Phone no "
                         keyboardType='phone-pad'
-                        returnKeyType="Done"
+                        
                  />
                 </View>
                 <View style={styles.FormElement} >
