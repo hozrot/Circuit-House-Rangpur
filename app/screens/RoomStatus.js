@@ -3,8 +3,21 @@ import { View ,Text,Button,StyleSheet, TouchableOpacity,onPress, ScrollView} fro
 import RoomCard from '../component/RoomCard';
 import AppButton from '../component/AppButton';
 
+
+const Viproom1 =
+    {
+        id: 1,
+        name: 'VIP-1',
+        capacity: 2,
+        Bed:'Double',
+        image:require('../assets/VIP.jpg'),
+
+    }
+
 function RoomStatus({navigation}) {
     return (
+
+       
         <View style={styles.Container}>
            <View style={styles.Header}>
                 <Text style={{fontSize: 20, fontWeight: '800',paddingBottom:15}}>
@@ -19,17 +32,19 @@ function RoomStatus({navigation}) {
                    <ScrollView horizontal>
                         <View style={styles.CardSection}>
                                 
-                                            <RoomCard RoomName={'Room 1'}
+                                            <RoomCard RoomName={Viproom1.name}
                                                     AcConfig={"AC"}
-                                                    CapasityConfig={'Double'}/>
+                                                    CapasityConfig={Viproom1.Bed}
+                                                    onPress={() => navigation.navigate('Details',Viproom1)}/>
                                 
                                             <RoomCard RoomName={'Room 2'}
                                                     AcConfig={" AC"}
                                                     CapasityConfig={'Single'}/>
                                
-                                            <RoomCard RoomName={'Room 3'}
-                                                    AcConfig={"AC"}
-                                                    CapasityConfig={'Single'}/>
+                                            <RoomCard 
+                                                RoomName={'Room 3'}
+                                                AcConfig={"AC"}
+                                                CapasityConfig={'Single'}/>
                            
                                 
                                 
@@ -97,7 +112,6 @@ function RoomStatus({navigation}) {
                    
            <View style={styles.Footer}>
                     <AppButton ButtonName={"Book A Room"}  onPress={() => navigation.navigate('Entry')}/>
-                
            </View>
        </View>
     );

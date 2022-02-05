@@ -1,17 +1,23 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import { Text, View,StyleSheet,Image, ScrollView} from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
-function RoomDetails({navigation}) {
+
+function RoomDetails({navigation,route}) {
+
+    const RoomName= route.params;
+
+
     return (
         <View style={styles.Container}>
             <View style={styles.Header}>
-                <Text style={styles.HeaderText}>  Room Name </Text>
+                <Text style={styles.HeaderText}> {RoomName.name} </Text>
             </View>
             
             <View style={styles.imageBox} >
         
             <Image  style={styles.image}
-                source={require('../assets/test.jpg')}/>
+                source={RoomName.image}/>
 
         
             </View>
@@ -64,6 +70,8 @@ function RoomDetails({navigation}) {
                 fontWeight:'bold',
                 paddingLeft:15,
                 top:5}}> Costing Details</Text>
+
+                
 
                 
             </View>

@@ -1,105 +1,137 @@
 import React ,{ useState } from 'react';
-import { Text,View,StyleSheet,Button, TextInput ,ScrollView,KeyboardAvoidingView, DatePickerIOSBase} from 'react-native';
-import DatePicker from 'react-native-date-picker'
+import { Text,Switch,View,StyleSheet,Button ,ScrollView,KeyboardAvoidingView} from 'react-native';
+
+import DateTimePicker from '@react-native-community/datetimepicker';
 import NumericInput from 'react-native-numeric-input'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-
+import AppInputText from '../component/AppInputText';
 
 const Stack = createNativeStackNavigator();
 
+
 function RoomEntry({navigation}) {
+    const [fromdate, setFromdate] = useState(new Date());
+    const [todate, setTodate] = useState(new Date());
+    const [mode, setMode] = useState('date');
+    const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+   // const [isSelected, setSelection] = useState(false);
+    const ontoChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setTodate(currentDate);
+        };
+    const onfromChange = (event, selectedDate) => {
+        const currentDate = selectedDate || date;
+        setFromdate(currentDate);
+        };
+
+  
+
+  
     return (
        
             <KeyboardAvoidingView style={styles.Container}  keyboardVerticalOffset={100} behavior={'padding'}>
                
             <ScrollView style={styles.Container}>
             <View style={styles.Header}>
-
                 <Text style={styles.HeaderText}>  Room Name </Text>
-
             </View>
             <View style={styles.Body}>
                 <View style={styles.timeEntry}>
                 <View style={styles.FormElement} >
     
-                <Text style={styles.BodyText}>
-                    From: 
-                </Text>
-                <TextInput
-                        style={styles.input}
-                        placeholder="Phone no "
-                        keyboardType='phone-pad'
-                        
-                 />
+                    <Text style={styles.BodyText}>
+                        From: 
+                    </Text>
+                    <DateTimePicker
+                        testID="dateTimePicker"
+                        value={fromdate}
+                        mode={mode}
+                        is24Hour={true}
+                        display="default"
+                        onChange={onfromChange}
+                        />
+                        <DateTimePicker
+                        testID="dateTimePicker"
+                        value={fromdate}
+                        mode={'time'}
+                        is24Hour={true}
+                        display="default"
+                        onChange={onfromChange}
+                        />
+         
                 </View>
                 <View style={styles.FormElement} >
     
-                <Text style={styles.BodyText}>
-                To : 
-                </Text>
-                <TextInput
-                        style={styles.input}
-                        placeholder="Phone no "
-                        keyboardType="phone-pad"
-                 />
+                    <Text style={styles.BodyText}>
+                    To : 
+                    </Text>
+                    <DateTimePicker
+                        testID="dateTimePicker"
+                        value={todate}
+                        mode={mode}
+                        is24Hour={true}
+                        display="default"
+                        onChange={ontoChange}
+                        />
+                        <DateTimePicker
+                        testID="dateTimePicker"
+                        value={todate}
+                        mode={'time'}
+                        is24Hour={true}
+                        display="default"
+                        onChange={ontoChange}
+                        />
                 </View>
                 </View>
                 <View style={styles.GuestEntry} >
-                
-    
                     <Text style={styles.BodyText}>
                     Number of Guest : 
                     </Text>
-                    <NumericInput minValue={1} onChange={value => console.log(value)} />
-                        
+                    <NumericInput minValue={1} onChange={value => console.log(value)} />    
                 </View>
-                <View style={styles.FormElement} >
+
+                    <View style={styles.FormElement} >
     
-                <Text style={styles.BodyText}>
-                Guest Details :
-                </Text>
+                        <Text style={styles.BodyText}>
+                        Guest Details :
+                        </Text>
                
-                    <View style={styles.guestDetalis}>
-                        <Text style={styles.nameInput}> Name </Text>
-                    <TextInput
-                            style={styles.input}
-                            placeholder="    Full Name  "
-                            keyboardType="name-phone-pad"
-                           
-                    />
-                    </View>
-                    <View style={styles.guestDetalis}>
-                        <Text style={styles.nameInput}> Office </Text>
-                    <TextInput
-                            style={styles.input}
-                            placeholder="    Office Name  "
-                            keyboardType="name-phone-pad"
-                           
-                    />
-                    </View>
-                    <View style={styles.guestDetalis}>
-                        <Text style={styles.nameInput}> Phone  </Text>
-                    <TextInput
-                            style={styles.input}
-                            placeholder="    Phone no.  "
-                            keyboardType="name-phone-pad"
-                           
-                    />
-                    </View>
-                    <View style={styles.guestDetalis}>
-                        <Text style={styles.nameInput}>Details </Text>
-                    <TextInput
-                            style={styles.input}
-                            placeholder="   If any   "
-                            keyboardType="name-phone-pad"
-                           
-                    />
-                    </View>
+                        <AppInputText  icon='home'
+                        placeholder="Guest Full Name"
+                        color='#6a5acd'
+                        />
                    
-                </View>
+                        <AppInputText  icon='home'
+                        placeholder="Office Address"/>
+
+                        <AppInputText  icon='home'
+                        placeholder="Phone no."
+                        returnKeyType={(Platform.OS === 'ios') ? 'done' : 'next'}
+                        keyboardType={'phone-pad'}
+                        />         
+                    
+                        <AppInputText  icon='home'
+                        placeholder="Details "/> 
+                         
+                         <View style={styles.support}>
+                        <Text style={{fontSize:15,fontWeight:'bold',padding:10}}> Vehical Support </Text>
+                         <Switch
+                            trackColor={{ false: "#767577", true: "#81b0ff" }}
+                            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={toggleSwitch}
+                            value={isEnabled}
+                        />  
+
+
+                         </View>
+                         
+                
+                 </View>
+                
                
-                </View>
+               
                 <View style={styles.Footer}>
                    <Button 
                      title="Book now"
@@ -109,7 +141,7 @@ function RoomEntry({navigation}) {
                 </View>
     
     
-    
+    </View>
                 </ScrollView>
                     </KeyboardAvoidingView>
     
@@ -126,6 +158,11 @@ function RoomEntry({navigation}) {
             flexDirection:'row'
 
         },
+        support:{
+            flexDirection:'row',
+            justifyContent:'space-around'
+        },
+
         Header:{
             
             backgroundColor: '#a3d9c9',
@@ -181,24 +218,22 @@ function RoomEntry({navigation}) {
             
             width: "40%",
             height: "50%",
-            
-            
+              
            
             
         },
         FormElement:{
-            flex: 1
+            flex: 1,
+            margin:10
+
+            
         },
         BodyText:{
             fontWeight:'bold',
-            fontSize:25,
-            padding:20,
-           
-            
-    
-        },
-        
-       
+            fontSize:20,
+
+            textAlign:'center'    
+        }, 
         Footer:{
             flex:1,
             justifyContent:'center',
@@ -210,5 +245,6 @@ function RoomEntry({navigation}) {
         }, 
     
     })
+
 
 export default RoomEntry;
