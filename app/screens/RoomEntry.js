@@ -1,6 +1,5 @@
-
 import React ,{ useState } from 'react';
-import { Text,View,StyleSheet,Button ,ScrollView,KeyboardAvoidingView} from 'react-native';
+import { Text,Switch,View,StyleSheet,Button ,ScrollView,KeyboardAvoidingView} from 'react-native';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 import NumericInput from 'react-native-numeric-input'
@@ -9,11 +8,14 @@ import AppInputText from '../component/AppInputText';
 
 const Stack = createNativeStackNavigator();
 
+
 function RoomEntry({navigation}) {
     const [fromdate, setFromdate] = useState(new Date());
     const [todate, setTodate] = useState(new Date());
     const [mode, setMode] = useState('date');
-
+    const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+   // const [isSelected, setSelection] = useState(false);
     const ontoChange = (event, selectedDate) => {
         const currentDate = selectedDate || date;
         setTodate(currentDate);
@@ -72,14 +74,14 @@ function RoomEntry({navigation}) {
                         display="default"
                         onChange={ontoChange}
                         />
-                        {/* <DateTimePicker
+                        <DateTimePicker
                         testID="dateTimePicker"
                         value={todate}
                         mode={'time'}
                         is24Hour={true}
                         display="default"
                         onChange={ontoChange}
-                        /> */}
+                        />
                 </View>
                 </View>
                 <View style={styles.GuestEntry} >
@@ -110,7 +112,21 @@ function RoomEntry({navigation}) {
                         />         
                     
                         <AppInputText  icon='home'
-                        placeholder="Details "/>          
+                        placeholder="Details "/> 
+                         
+                         <View style={styles.support}>
+                        <Text style={{fontSize:15,fontWeight:'bold',padding:10}}> Vehical Support </Text>
+                         <Switch
+                            trackColor={{ false: "#767577", true: "#81b0ff" }}
+                            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                            ios_backgroundColor="#3e3e3e"
+                            onValueChange={toggleSwitch}
+                            value={isEnabled}
+                        />  
+
+
+                         </View>
+                         
                 
                  </View>
                 
@@ -142,6 +158,11 @@ function RoomEntry({navigation}) {
             flexDirection:'row'
 
         },
+        support:{
+            flexDirection:'row',
+            justifyContent:'space-around'
+        },
+
         Header:{
             
             backgroundColor: '#a3d9c9',
@@ -209,8 +230,8 @@ function RoomEntry({navigation}) {
         },
         BodyText:{
             fontWeight:'bold',
-            fontSize:25,
-            padding:20,
+            fontSize:20,
+
             textAlign:'center'    
         }, 
         Footer:{

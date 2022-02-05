@@ -10,7 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@react-native-community/datetimepicker": "^4.0.0",
+    "@react-native-community/datetimepicker": "^4.0.1",
     "@react-navigation/native": "^6.0.6",
     "@react-navigation/native-stack": "^6.2.5",
     "expo": "^44.0.0",
@@ -22,6 +22,8 @@
     "react-native-numeric-input": "^1.9.1",
     "react-native-safe-area-context": "^3.3.2",
     "react-native-screens": "^3.10.2",
+    "react-native-svg": "^12.1.1",
+    "react-native-vector-icons": "^9.0.0",
     "react-native-web": "0.17.1",
     "yarn": "^1.22.17"
   },
