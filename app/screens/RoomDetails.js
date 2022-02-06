@@ -1,5 +1,5 @@
 import React ,{useState} from 'react';
-import { Text, View,StyleSheet,Image, ScrollView} from 'react-native';
+import { Text, View,StyleSheet,Image, ScrollView,Button} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 
@@ -34,7 +34,7 @@ function RoomDetails({navigation,route}) {
 
                 <View style={styles.configDetails}>
                 <Text style={{ fontSize:15,fontStyle:'italic',fontWeight:'bold'}}> Capacity </Text>
-                <Text style={{fontWeight:'500',marginTop:5}}> 01  </Text>
+                <Text style={{fontWeight:'500',marginTop:5}}> {RoomName.capacity}  </Text>
                 </View>
                 
 
@@ -71,10 +71,24 @@ function RoomDetails({navigation,route}) {
                 paddingLeft:15,
                 top:5}}> Costing Details</Text>
 
+                <Button 
+                 title="Record"
+                 color="#6a5acd"
+                 onPress={() => navigation.navigate('Record')}
+                />
+
                 
 
                 
             </View>
+
+            <View style={styles.Footer1}>
+               
+                
+               
+               
+
+               </View>
        
 
 
@@ -155,6 +169,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#a3d9c9',
         
     },
+    Footer1:{
+        backgroundColor: '#6a5acd'
+    }
+    
     
     
 })

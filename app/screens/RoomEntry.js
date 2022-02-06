@@ -50,6 +50,7 @@ function RoomEntry({navigation}) {
                         is24Hour={true}
                         display="default"
                         onChange={onfromChange}
+                       
                         />
                         <DateTimePicker
                         testID="dateTimePicker"
@@ -134,7 +135,7 @@ function RoomEntry({navigation}) {
                
                 <View style={styles.Footer}>
                    <Button 
-                     title="Book now"
+                     title="Book your room now"
                      color="#fff"
                      onPress={() => navigation.navigate('CheckOut')}
                     />
