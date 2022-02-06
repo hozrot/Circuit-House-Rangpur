@@ -12,6 +12,24 @@ const Viproom1 =
         Bed:'Double',
         image:require('../assets/VIP.jpg'),
 
+    },
+    Viproom2 =
+    {
+        id: 2,
+        name: 'VIP-2',
+        capacity: 1,
+        Bed:'Single',
+        image:require('../assets/double.jpg'),
+
+    },
+    Viproom3 =
+    {
+        id: 3,
+        name: 'VIP-3',
+        capacity: 4,
+        Bed:'Double',
+        image:require('../assets/test.jpg'),
+
     }
 
 function RoomStatus({navigation}) {
@@ -37,14 +55,16 @@ function RoomStatus({navigation}) {
                                                     CapasityConfig={Viproom1.Bed}
                                                     onPress={() => navigation.navigate('Details',Viproom1)}/>
                                 
-                                            <RoomCard RoomName={'Room 2'}
+                                            <RoomCard RoomName={Viproom2.name}
                                                     AcConfig={" AC"}
-                                                    CapasityConfig={'Single'}/>
+                                                    CapasityConfig={Viproom2.Bed}
+                                                    onPress={() => navigation.navigate('Details',Viproom2)}/>
                                
                                             <RoomCard 
-                                                RoomName={'Room 3'}
-                                                AcConfig={"AC"}
-                                                CapasityConfig={'Single'}/>
+                                                RoomName={Viproom3.name}
+                                                AcConfig={" AC"}
+                                                CapasityConfig={Viproom3.Bed}
+                                                onPress={() => navigation.navigate('Details',Viproom3)}/>
                            
                                 
                                 
@@ -60,7 +80,7 @@ function RoomStatus({navigation}) {
                                             <RoomCard RoomName={'Room 21'}
                                                     AcConfig={"Non AC"}
                                                     CapasityConfig={'Double1'}
-                                                    onPress={() => navigation.navigate('Details')}/>
+                                                    />
                                
                                             <RoomCard RoomName={'Room 22'}
                                                     AcConfig={"Non AC"}

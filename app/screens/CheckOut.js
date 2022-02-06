@@ -95,17 +95,17 @@ function CheckOut(props) {
            
             </View>
             <View style={styles.Footer}>
-               <View style={styles.Footer1}>
-               <Button 
-                 title="Save"
-                 color="#000"
-                 onPress={() => navigation.navigate('CheckOut')}
-                />
-                
-               
-               
+            <View style={styles.Footer1}>
+            <Button 
+                title="Save"
+                color="#000"
+                onPress={() => navigation.navigate('CheckOut')}
+            />
+            
+            
+            
 
-               </View>
+            </View>
                 
                
             </View>
