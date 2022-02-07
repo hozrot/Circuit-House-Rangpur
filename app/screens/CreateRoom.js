@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import { Text, View,StyleSheet,Button,onChangeText} from 'react-native';
 import AppInputText from '../component/AppInputText';
 import NumericInput from 'react-native-numeric-input';
-
+import SelectDropdown from 'react-native-select-dropdown'
 import AppButton from '../component/AppButton';
 import { addSingleRoom } from '../controller/roomController';
 import createData from '../Services/create';
@@ -16,6 +16,11 @@ function CreateRoom({navigation}) {
     const [numofbed,setNumofbed]= useState("")
     const [bed,setBed]= useState("")
     const [capasity,setCapasity]= useState("")
+
+
+    const roomcategory = ["VIP", "Normal", "Confarence"]
+    const bedcategory = ["Single", "Double"]
+    const acstatus = ["Yes", "No"]
 
     function addRoom(){
         var singleRoom={
@@ -85,6 +90,26 @@ function CreateRoom({navigation}) {
                     color="#000"
                     onPress={()=>addRoom()}
                     />
+
+                    {/* <SelectDropdown
+                        data={roomcategory}
+                        defaultButtonText={"Select Room Category"}
+                        onSelect={(selectedItem, index) => {
+                            console.log(selectedItem, index)
+                        }}
+                        buttonTextAfterSelection={(selectedItem, index) => {
+                            // text represented after item is selected
+                            // if data array is an array of objects then return selectedItem.
+                            //property to render after item is selected
+                            return selectedItem
+                        }}
+                        rowTextForSelection={(item, index) => {
+                            // text represented for each item in dropdown
+                            // if data array is an array of objects then return item.
+                            //property to represent item in dropdown
+                            return item
+                        }}
+                    /> */}
             </View>
 
            
