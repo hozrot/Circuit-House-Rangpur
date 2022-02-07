@@ -18,7 +18,7 @@ function CreateRoom({navigation}) {
     const [capasity,setCapasity]= useState("")
 
     function addRoom(){
-        var room={
+        var singleRoom={
             "name": name,
             "category": category,
             "ac":ac,
@@ -26,11 +26,11 @@ function CreateRoom({navigation}) {
             "bed":bed,
             "capasity": capasity
         }
-        addSingleRoom(room,addComplete)
+        addSingleRoom(singleRoom,addComplete)
     }
 
     function addComplete(){
-        navigation.navigate('status')
+        navigation.navigate('Status');
     }
 
     return (
@@ -53,11 +53,11 @@ function CreateRoom({navigation}) {
                 onChangeText={text=> setName(text)}/>
                 <AppInputText  icon='home'
                 placeholder="Room Category"
-               
+                
                 onChangeText={text=> setCategory(text)}/>     
                 <AppInputText  icon='home'
                 placeholder="Aircondition "
-               
+                
                 onChangeText={text=> setAc(text)}/>
                 <AppInputText  icon='home'
                 placeholder="Bed Category "
@@ -66,15 +66,14 @@ function CreateRoom({navigation}) {
                 <View style={{flexDirection:'row',margin:10,padding:10}}>
                     <View style={{padding:10}}>
                         <Text> Number of Bed: </Text>
-                        <NumericInput minValue={1} onChange={value => console.log(value)} 
+                        <NumericInput minValue={1} onChange={text=> setNumofbed(text)}
                         
-                        onChangeText={text=> setNumofbed(text)}/>    
+                        />    
                     </View>
                     <View style={{padding:10}} >
                         <Text> Capasity </Text>
-                        <NumericInput minValue={1} onChange={value => console.log(value)}
-                       
-                        onChangeText={text=> setCapasity(text)} />    
+                        <NumericInput minValue={1} onChange={text=> setCapasity(text)} 
+                     />    
                     </View>
                 </View>  
         
@@ -84,7 +83,7 @@ function CreateRoom({navigation}) {
                 <AppButton
                     ButtonName="Add Room"
                     color="#000"
-                    onPress={() => addRoom()}
+                    onPress={()=>addRoom()}
                     />
             </View>
 

@@ -1,12 +1,12 @@
 import firebase from '../Services/firebasebd'
 
-export function  addSingleRoom(room,addComplete){
+export function  addSingleRoom(rooms,addComplete){
     firebase.firestore()
-    .collection("SingleRooms")
-    .add(room) 
+    .collection("rooms")
+    .add(rooms) 
     .then((snapshot) => {
-        room.id=snapshot.id
-        snapshot.set(room)
+        rooms.id=snapshot.id
+        snapshot.set(rooms)
     })
     .then(()=> addComplete())
     .catch((error)=> console.log(error))

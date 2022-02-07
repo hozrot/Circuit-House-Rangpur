@@ -9,7 +9,7 @@ import AppInputText from '../component/AppInputText';
 const Stack = createNativeStackNavigator();
 
 
-function RoomEntry({navigation}) {
+function RoomEntry({navigation,route}) {
     const [fromdate, setFromdate] = useState(new Date());
     const [todate, setTodate] = useState(new Date());
     const [mode, setMode] = useState('date');
@@ -25,7 +25,7 @@ function RoomEntry({navigation}) {
         setFromdate(currentDate);
         };
 
-  
+        const RoomName= route.params;
 
   
     return (
@@ -34,7 +34,7 @@ function RoomEntry({navigation}) {
                
             <ScrollView style={styles.Container}>
             <View style={styles.Header}>
-                <Text style={styles.HeaderText}>  Room Name </Text>
+                <Text style={styles.HeaderText}> {RoomName}</Text>
             </View>
             <View style={styles.Body}>
                 <View style={styles.timeEntry}>
@@ -116,28 +116,26 @@ function RoomEntry({navigation}) {
                         placeholder="Details "/> 
                          
                          <View style={styles.support}>
-                        <Text style={{fontSize:15,fontWeight:'bold',padding:10}}> Vehical Support </Text>
-                         <Switch
-                            trackColor={{ false: "#767577", true: "#81b0ff" }}
-                            thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                            ios_backgroundColor="#3e3e3e"
-                            onValueChange={toggleSwitch}
-                            value={isEnabled}
-                        />  
-
+                            <Text style={{fontSize:15,fontWeight:'bold',padding:10}}> Vehical Support </Text>
+                            <Switch
+                                trackColor={{ false: "#767577", true: "#81b0ff" }}
+                                thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                                ios_backgroundColor="#3e3e3e"
+                                onValueChange={toggleSwitch}
+                                value={isEnabled}/> 
 
                          </View>
                          
                 
-                 </View>
+                    </View>
                 
                
                
                 <View style={styles.Footer}>
                    <Button 
-                     title="Book your room now"
+                     title="Confirm Booking"
                      color="#fff"
-                     onPress={() => navigation.navigate('CheckOut')}
+                     onPress={() => navigation.navigate('Status')}
                     />
                 </View>
     
