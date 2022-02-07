@@ -72,14 +72,10 @@ function RoomDetails({navigation,route}) {
                 top:5}}> Costing Details</Text>
 
                 <Button 
-                 title="Record"
+                 title="Add a room details"
                  color="#6a5acd"
-                 onPress={() => navigation.navigate('Record')}
-                />
-
-                
-
-                
+                 onPress={() => navigation.navigate('Room')}
+                />    
             </View>
 
             <View style={styles.Footer1}>

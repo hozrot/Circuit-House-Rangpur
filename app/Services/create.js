@@ -1,10 +1,10 @@
 import db from '../Services/firebasebd';
 import showToast from './toast';
 
-const createData = async (dbname)=>{
+const createData = async (room)=>{
 
     try {
-        await db.collection('tessss').add(dbname);
+        await db.collection('rooms').add(room) ;
         showToast({type:'success',text:'data updated'});
         return true;
         
@@ -15,4 +15,4 @@ const createData = async (dbname)=>{
     }
 }
 
-export default create;
+export default createData;

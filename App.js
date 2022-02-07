@@ -11,6 +11,7 @@ import RoomCard from './app/component/RoomCard';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DateTime from './app/screens/DateTime';
+import CreateRoom from './app/screens/CreateRoom';
 
 
 const Stack = createNativeStackNavigator();
@@ -26,6 +27,7 @@ export default function App() {
         <Stack.Screen name="CheckOut" component={CheckOut}/>
         <Stack.Screen name="card" component={RoomCard}/>
         <Stack.Screen name="Date" component={DateTime}/>
+        <Stack.Screen name="Room" component={CreateRoom}/>
        
         
       </Stack.Navigator>
