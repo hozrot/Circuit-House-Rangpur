@@ -72,9 +72,9 @@ function RoomDetails({navigation,route}) {
                 top:5}}> Costing Details</Text>
 
                 <Button 
-                 title="Add a room details"
+                 title="Book Now"
                  color="#6a5acd"
-                 onPress={() => navigation.navigate('Room')}
+                 onPress={() => navigation.navigate('Entry',RoomName.name)}
                 />    
             </View>
 

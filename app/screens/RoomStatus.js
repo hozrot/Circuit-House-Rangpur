@@ -131,7 +131,7 @@ function RoomStatus({navigation}) {
            </View>
                    
            <View style={styles.Footer}>
-                    <AppButton ButtonName={"Book A Room"}  onPress={() => navigation.navigate('Entry')}/>
+                    <AppButton ButtonName={"Add a new Room"}  onPress={() => navigation.navigate('Room')}/>
            </View>
        </View>
     );
