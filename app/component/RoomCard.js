@@ -8,7 +8,7 @@ function RoomCard({RoomName,AcConfig,CapasityConfig,onPress}) {
                 <Text> {RoomName}  </Text> 
             </View>
             <View style={styles.roomConfig}>
-            <Icon name={"home"} backgroundColor={'#50C878'} iconColor={'#fff'} size={45}/>
+            <Icon name={"arrange-send-to-back"} backgroundColor={'#50C878'} iconColor={'#6a5acd'} size={45}/>
                 <Text >{AcConfig}  </Text>
                 <Text>{CapasityConfig} </Text>
             </View>
