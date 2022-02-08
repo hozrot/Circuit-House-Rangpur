@@ -1,7 +1,7 @@
 import React ,{useState} from 'react';
 import { Text, View,StyleSheet,Image, ScrollView,Button} from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
-
+import Icon from '../component/Icon';
 
 function RoomDetails({navigation,route}) {
 
@@ -23,17 +23,17 @@ function RoomDetails({navigation,route}) {
             </View>
             <View style={styles.config}>
                 <View style={styles.configDetails}>
-                <Text style={{ fontSize:15,fontStyle:'italic',fontWeight:'bold'}}> Category </Text>
+                <Text style={{ fontSize:18,fontStyle:'italic',fontWeight:'bold'}}> Category </Text>
                 <Text  style={{fontWeight:'500',marginTop:5}}> VIP  </Text>
                 </View>
 
                 <View style={styles.configDetails}>
-                <Text style={{ fontSize:15,fontStyle:'italic',fontWeight:'bold'}}> Air Condition </Text>
+                <Text style={{ fontSize:16,fontStyle:'italic',fontWeight:'bold'}}> Air Condition </Text>
                 <Text style={{fontWeight:'500',marginTop:5}}> Yes </Text>
                 </View>
 
                 <View style={styles.configDetails}>
-                <Text style={{ fontSize:15,fontStyle:'italic',fontWeight:'bold'}}> Capacity </Text>
+                <Text style={{ fontSize:18,fontStyle:'italic',fontWeight:'bold'}}> Capacity </Text>
                 <Text style={{fontWeight:'500',marginTop:5}}> {RoomName.capacity}  </Text>
                 </View>
                 
@@ -45,19 +45,20 @@ function RoomDetails({navigation,route}) {
                 <Text style={{ fontSize:20,fontStyle:'italic',fontWeight:'bold',paddingLeft:15,top:5}}> Furniture </Text>
                 <View style={styles.furnitureDetails}>
                      <View style={styles.furnitureElement}>
-                        <Text> Bed </Text>
+                     <Icon name={"bed"} backgroundColor={'#50C878'} iconColor={'#6a5acd'} size={45}/> 
+                        
                         <Text> 01 </Text>
                     </View>
                     <View style={styles.furnitureElement}>
-                        <Text> Table </Text>
+                    <Icon name={"table-furniture"} backgroundColor={'#50C878'} iconColor={'#6a5acd'} size={45}/> 
                         <Text> 01 </Text>
                     </View>
                     <View style={styles.furnitureElement}>
-                        <Text> TV </Text>
+                    <Icon name={"television"} backgroundColor={'#50C878'} iconColor={'#6a5acd'} size={45}/> 
                         <Text> 01 </Text>
                     </View>
                     <View style={styles.furnitureElement}>
-                        <Text> Sofa </Text>
+                    <Icon name={"sofa"} backgroundColor={'#50C878'} iconColor={'#6a5acd'} size={45}/> 
                         <Text> 01 </Text>
                     </View>
                 </View>
@@ -71,20 +72,18 @@ function RoomDetails({navigation,route}) {
                 paddingLeft:15,
                 top:5}}> Costing Details</Text>
 
-                <Button 
-                 title="Book Now"
-                 color="#6a5acd"
-                 onPress={() => navigation.navigate('Entry',RoomName.name)}
-                />    
+                  
             </View>
 
-            <View style={styles.Footer1}>
+            
+               <View style={styles.FooterContent}> 
                
-                
-               
-               
-
-               </View>
+                    <Button 
+                        title="Book Now"
+                        color="#fff"
+                        onPress={() => navigation.navigate('Entry',RoomName.name)}
+                        />  
+                </View>
        
 
 
@@ -98,10 +97,11 @@ function RoomDetails({navigation,route}) {
 const styles = StyleSheet.create({
     Container:{
         flex: 1,
+        backgroundColor: '#a3d9c9',
         
     },
     Header:{
-        flex: .05,
+        flex: .08,
         backgroundColor: '#a3d9c9',
         justifyContent:'center',
         alignItems:'center'
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         fontSize:25
     },
     imageBox:{
-        flex: 0.35
+        flex: 0.55
 
     },
     image:{
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         
     },
     config:{
-        flex: .10,
+        flex: .20,
         backgroundColor: '#a3d9c9',
         justifyContent:'center',
         alignItems:'center',
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
 
     },
     furniture:{
-        flex: .15,
+        flex: .25,
         backgroundColor:'#a3d9c9'
         
         
@@ -165,8 +165,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#a3d9c9',
         
     },
-    Footer1:{
-        backgroundColor: '#6a5acd'
+    FooterContent:{
+        margin:20,
+        backgroundColor: '#6a5acd',
+        borderRadius:20
+
+        
     }
     
     

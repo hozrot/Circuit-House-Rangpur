@@ -1,13 +1,15 @@
 import React from 'react';
 import { View ,StyleSheet,Text, Button} from 'react-native';
-
+import Icon from '../component/Icon';
 
 
 function HomePage( {navigation} ) {
     return (
         <View style={styles.Container}>
             <View style={styles.Header}>
+            <Icon name={"warehouse"} backgroundColor={'#a3d9c9'} iconColor={'#6a5acd'} size={85}/> 
                 <Text style={styles.HeaderText} > Welcome to {"\n"} Circuit House   </Text>
+                
 
             </View>
             <View style={styles.Button}>
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
 
     },
     Button:{
-        flex: .15,
+        flex: .10,
         backgroundColor:'#6a5acd',
         justifyContent:'center',
         alignItems:'center',
