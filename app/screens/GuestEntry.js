@@ -1,6 +1,6 @@
 import React ,{ useState } from 'react';
 import { Text,Switch,View,StyleSheet,Button ,ScrollView,KeyboardAvoidingView} from 'react-native';
-
+import Icon from '../component/Icon';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import NumericInput from 'react-native-numeric-input'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -33,78 +33,103 @@ function GuestEntry({navigation,route}) {
             <KeyboardAvoidingView style={styles.Container}  keyboardVerticalOffset={100} behavior={'padding'}>
                
             <ScrollView style={styles.Container}>
-            <View style={styles.Header}>
-                <Text style={styles.HeaderText}> {RoomName}</Text>
-            </View>
-            <View style={styles.Body}>
-                <View style={styles.timeEntry}>
-                <View style={styles.FormElement} >
-    
-                   
-         
+                <View style={styles.Header}>
+                    <Text style={styles.HeaderText}> {RoomName}</Text>
                 </View>
-                <View style={styles.FormElement} >
-    
-                    
-                </View>
-                </View>
-                
-
+                    <View style={styles.Body}>
+                    {/* <View style={styles.timeEntry}>
                     <View style={styles.FormElement} >
-    
-                        <Text style={styles.BodyText}>
-                        Guest Details :
-                        </Text>
-                        <View style={styles.GuestEntry} >
-                    <Text style={styles.BodyText}>
-                    Number of Guest : 
-                    </Text>
-                    <NumericInput minValue={1} onChange={value => console.log(value)} />    
-                </View>
-               
-                        <AppInputText  icon='account-star-outline'
-                        placeholder="Guest Full Name"
-                        color='#6a5acd'
-                        />
-                   
-                        <AppInputText  icon='bank'
-                        placeholder="Office Address"/>
-
-                        <AppInputText  icon='phone'
-                        placeholder="Phone no."
-                        returnKeyType={(Platform.OS === 'ios') ? 'done' : 'next'}
-                        keyboardType={'phone-pad'}
-                        />         
+        
                     
-                        <AppInputText  icon='arrow-decision-outline'
-                        placeholder="Details "/> 
-                         
-                         <View style={styles.support}>
-                            <Text style={{fontSize:15,fontWeight:'bold',padding:10}}> Vehical Support </Text>
-                            <Switch
-                                trackColor={{ false: "#767577", true: "#81b0ff" }}
-                                thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
-                                ios_backgroundColor="#3e3e3e"
-                                onValueChange={toggleSwitch}
-                                value={isEnabled}/> 
-
-                         </View>
-                         
-                
+            
                     </View>
+                    <View style={styles.FormElement} >
+        
+                        
+                    </View>
+                    </View> */}
+                
+
+                            <View style={styles.FormElement} >
+            
+                                
+                                <View style={styles.GuestEntry} >
+                                    <Text style={{fontWeight:'bold',fontSize:18}}>
+                                    Number of Guest
+                                    </Text>
+                                    <NumericInput minValue={1} 
+                                        totalWidth={180} 
+                                        totalHeight={40} 
+                                        rounded 
+                                        textColor='#000' 
+                                        iconStyle={{ color: '#fff' }} 
+                                        rightButtonBackgroundColor='#6a5acd' 
+                                        leftButtonBackgroundColor='#6a5acd'
+                                        onChange={value => console.log(value)} />    
+                                </View>
+                    
+                                <AppInputText  icon='account-star-outline'
+                                placeholder="Guest Full Name"
+                                color='#6a5acd'
+                                />
+                                <AppInputText  icon='shield-account'
+                                placeholder="Designation"
+                                color='#6a5acd'
+                                />
+                        
+                                <AppInputText  icon='bank'
+                                placeholder=" Address"/>
+
+                                <AppInputText  icon='phone'
+                                placeholder="Phone no."
+                                returnKeyType={(Platform.OS === 'ios') ? 'done' : 'next'}
+                                keyboardType={'phone-pad'}
+                                />         
+                            
+                                <AppInputText  icon='arrow-decision-outline'
+                                placeholder=" Reference "/> 
+                                
+                                <View style={styles.support}>
+                                    <Text style={{fontSize:15,fontWeight:'bold',padding:10}}> Vehical Support </Text>
+                                    <Switch
+                                        trackColor={{ false: "#767577", true: "#81b0ff" }}
+                                        thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+                                        ios_backgroundColor="#3e3e3e"
+                                        onValueChange={toggleSwitch}
+                                        value={isEnabled}/> 
+
+                                </View>
+                                <View style={styles.Vehical} >
+                                <Icon name={"car"} backgroundColor={'#a3d9c9'} iconColor={'#6a5acd'} size={65}/>
+                                    
+                                    <NumericInput minValue={1} 
+                                   
+                                    totalWidth={130} 
+                                    totalHeight={40} 
+                                    rounded 
+                                    textColor='#000' 
+                                    iconStyle={{ color: '#fff' }} 
+                                    rightButtonBackgroundColor='#6a5acd' 
+                                    leftButtonBackgroundColor='#6a5acd'
+                                    onChange={value => console.log(value)} />    
+                                </View>
+
+                                
+                        
+                            </View>
                 
                
                
-                <View style={styles.Footer}>
-                   <Button 
-                     title="Book This Room"
-                     color="#fff"
-                     onPress={() => navigation.navigate('Booking')}
-                    />
-                </View>
+                        <View style={styles.Footer}>
+                        <Button 
+                            title="Book This Room"
+                            color="#fff"
+                            onPress={() => navigation.navigate('Booking')}
+                            />
+                        </View>
     
     
-    </View>
+                 </View>
                 </ScrollView>
                     </KeyboardAvoidingView>
     
@@ -169,6 +194,14 @@ function GuestEntry({navigation,route}) {
             margin:25
             
 
+
+        },
+        Vehical:{
+            justifyContent:'center',
+            alignItems:'center',
+            flexDirection:'row',
+            padding:10
+           
 
         },
         Body:{

@@ -77,7 +77,7 @@ function RoomBooking({navigation}) {
             <Button 
                         title="Confirm Booking"
                         color="#fff"
-                        onPress={() => navigation.navigate('Status')}
+                        onPress={() => navigation.navigate('Panchagarh')}
                         />
 
             </View>

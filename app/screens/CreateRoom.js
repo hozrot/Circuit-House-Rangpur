@@ -8,7 +8,8 @@ import { addSingleRoom } from '../controller/roomController';
 import createData from '../Services/create';
 import showToast from '../Services/toast';
 
-function CreateRoom({navigation}) {
+function CreateRoom({navigation,route}) {
+    const RoomName= route.params;
 
     const [name,setName]= useState("")
     const [category,setCategory]= useState("")
@@ -53,10 +54,9 @@ function CreateRoom({navigation}) {
 
                 <Text style={styles.BodyText}> Room  Details : </Text>
                 <AppInputText  icon='home'
-                placeholder="Room Name"
-                
+                placeholder={RoomName}
                 onChangeText={text=> setName(text)}/>
-                <AppInputText  icon='home'
+                {/* <AppInputText  icon='home'
                 placeholder="Room Category"
                 
                 onChangeText={text=> setCategory(text)}/>     
@@ -67,8 +67,8 @@ function CreateRoom({navigation}) {
                 <AppInputText  icon='home'
                 placeholder="Bed Category "
                 
-                onChangeText={text=> setBed(text)}/> 
-                <View style={{flexDirection:'row',margin:10,padding:10}}>
+                onChangeText={text=> setBed(text)}/>  */}
+                <View style={{flexDirection:'row'}}>
                     <View style={{padding:10}}>
                         <Text> Number of Bed: </Text>
                         <NumericInput minValue={1} onChange={text=> setNumofbed(text)}
@@ -85,11 +85,16 @@ function CreateRoom({navigation}) {
             </View>
 
             <View style={styles.Footer}>
-                <AppButton
+            <AppButton
+                    ButtonName="Change Room config."
+                    color="#000"
+                    onPress={()=>navigation.navigate('Panchagarh')}
+                    />
+                {/* <AppButton
                     ButtonName="Add Room"
                     color="#000"
                     onPress={()=>addRoom()}
-                    />
+                    /> */}
 
                     {/* <SelectDropdown
                         data={roomcategory}
@@ -126,11 +131,13 @@ const styles = StyleSheet.create({
 
     },
     FormElement:{
-        flex: 0.80
+        flex: 0.80,
+        justifyContent:'center',
+        padding:20
 
     },
     Footer:{
-        flex: 0.20
+        flex: 0.20,
 
     },
     BodyText:{
