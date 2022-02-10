@@ -13,6 +13,8 @@ function HomePage( {navigation} ) {
     const frtRoom= "Room 4";
     const fifRoom= "Room 5";
     const sixRoom= "Room 6";
+
+   
     const datesBlacklistFunc = date => {
         return date.isoWeekday() === 5; // disable Saturdays
       }
@@ -41,9 +43,6 @@ function HomePage( {navigation} ) {
                         
                         style={{height:80, padding:10}}
                         calendarColor={'#fff'}
-                        
-                        
-                        
                         dateNumberStyle={{color: '#000'}}
                         dateNameStyle={{color: '#000'}}
                         iconContainer={{flex: .001}}
