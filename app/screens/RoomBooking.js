@@ -71,6 +71,12 @@ function RoomBooking({navigation}) {
                         placeholder="Room ID  (Auto)"/>
                         <AppInputText  icon='check'
                         placeholder="Status (pending/confirm)"/>
+
+                        <Button 
+                        title="Test"
+                        color="#000"
+                        onPress={() => navigation.navigate('Test')}
+                        />      
                         
             </View>
             <View style={styles.Footer}>
@@ -79,8 +85,11 @@ function RoomBooking({navigation}) {
                         color="#fff"
                         onPress={() => navigation.navigate('Panchagarh')}
                         />
+                        
+
 
             </View>
+            
 
 
         </View>
