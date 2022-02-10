@@ -13,6 +13,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import DateTime from './app/screens/DateTime';
 import CreateRoom from './app/screens/CreateRoom';
 import RoomBooking from './app/screens/RoomBooking';
+import TestCalender from './app/screens/TestCalender';
 
 
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ export default function App() {
         <Stack.Screen name="Date" component={DateTime}/>
         <Stack.Screen name="Room" component={CreateRoom}/>
         <Stack.Screen name="Booking" component={RoomBooking}/>
+        <Stack.Screen name="Test" component={TestCalender}/>
        
         
       </Stack.Navigator>
