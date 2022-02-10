@@ -5,6 +5,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import NumericInput from 'react-native-numeric-input'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AppInputText from '../component/AppInputText';
+import { addSingleGuest } from '../controller/guestController';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,7 +28,35 @@ function GuestEntry({navigation,route}) {
 
         const RoomName= route.params;
 
-  
+        const [guestname,setGuestname]= useState("")
+        const [designation,setDesignation]= useState("")
+        const [address,setAddress]= useState("")
+        const [phoneno,setPhone] =useState("")
+        const [reference,setReference]=useState("")
+        const [vehicalsupport,setVehicalsupport]= useState("No")
+        const [numberofvehical,setNumberofvehical]= useState("")
+        const [numberofguest,setNumberofguest] =useState("")
+
+        function addGuest(){
+            var singleGuest={
+                "guestname": guestname,
+                "designation": designation,
+                "address":address,
+                "phoneno": phoneno,
+                "reference": reference,
+                "vehicalsupport":vehicalsupport,
+                "numberofvehical": numberofvehical,
+                "numberofguest":numberofguest,
+                
+            }
+            addSingleGuest(singleGuest,addComplete)
+        }
+        function addComplete(){
+            navigation.navigate('Booking');
+        }
+
+        
+        
     return (
        
             <KeyboardAvoidingView style={styles.Container}  keyboardVerticalOffset={100} behavior={'padding'}>
@@ -65,29 +94,38 @@ function GuestEntry({navigation,route}) {
                                         iconStyle={{ color: '#fff' }} 
                                         rightButtonBackgroundColor='#6a5acd' 
                                         leftButtonBackgroundColor='#6a5acd'
-                                        onChange={value => console.log(value)} />    
+                                        
+                                        onChange={text=> setNumberofguest(text)} />    
                                 </View>
                     
                                 <AppInputText  icon='account-star-outline'
                                 placeholder="Guest Full Name"
                                 color='#6a5acd'
+                                onChangeText={text=> setGuestname(text)}
                                 />
                                 <AppInputText  icon='shield-account'
                                 placeholder="Designation"
                                 color='#6a5acd'
+                                onChangeText={text=> setDesignation(text)}
                                 />
                         
                                 <AppInputText  icon='bank'
-                                placeholder=" Address"/>
+                                placeholder=" Address"
+                                onChangeText={text=> setAddress(text)}/>
 
                                 <AppInputText  icon='phone'
                                 placeholder="Phone no."
                                 returnKeyType={(Platform.OS === 'ios') ? 'done' : 'next'}
                                 keyboardType={'phone-pad'}
+                                onChange={text=> setPhone(text)}
                                 />         
                             
                                 <AppInputText  icon='arrow-decision-outline'
-                                placeholder=" Reference "/> 
+                                placeholder=" Reference "
+                                onChangeText={text=> setReference(text)}/> 
+                                <AppInputText  icon='car'
+                                value={isEnabled ? "Yes" : "No"}
+                                onChange={text=> setVehicalsupport(text)}/> 
                                 
                                 <View style={styles.support}>
                                     <Text style={{fontSize:15,fontWeight:'bold',padding:10}}> Vehical Support </Text>
@@ -96,13 +134,14 @@ function GuestEntry({navigation,route}) {
                                         thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
                                         ios_backgroundColor="#3e3e3e"
                                         onValueChange={toggleSwitch}
-                                        value={isEnabled}/> 
+                                        value={isEnabled}
+                                       /> 
 
                                 </View>
                                 <View style={styles.Vehical} >
                                 <Icon name={"car"} backgroundColor={'#a3d9c9'} iconColor={'#6a5acd'} size={65}/>
                                     
-                                    <NumericInput minValue={1} 
+                                    <NumericInput minValue={0} 
                                    
                                     totalWidth={130} 
                                     totalHeight={40} 
@@ -111,7 +150,7 @@ function GuestEntry({navigation,route}) {
                                     iconStyle={{ color: '#fff' }} 
                                     rightButtonBackgroundColor='#6a5acd' 
                                     leftButtonBackgroundColor='#6a5acd'
-                                    onChange={value => console.log(value)} />    
+                                    onChange={text=> setNumberofvehical(text)} />    
                                 </View>
 
                                 
@@ -124,7 +163,7 @@ function GuestEntry({navigation,route}) {
                         <Button 
                             title="Book This Room"
                             color="#fff"
-                            onPress={() => navigation.navigate('Booking')}
+                            onPress={() => addGuest()}
                             />
                         </View>
     

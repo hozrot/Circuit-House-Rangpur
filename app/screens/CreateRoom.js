@@ -11,7 +11,7 @@ import showToast from '../Services/toast';
 function CreateRoom({navigation,route}) {
     const RoomName= route.params;
 
-    const [name,setName]= useState("")
+    const [roomname,setRoomname]= useState("")
     const [category,setCategory]= useState("")
     const [ac,setAc]= useState("")
     const [numofbed,setNumofbed]= useState("")
@@ -25,18 +25,16 @@ function CreateRoom({navigation,route}) {
 
     function addRoom(){
         var singleRoom={
-            "name": name,
+            "roomname": roomname,
             "category": category,
-            "ac":ac,
-            "numofbed":numofbed,
             "bed":bed,
-            "capasity": capasity
+            
         }
         addSingleRoom(singleRoom,addComplete)
     }
 
     function addComplete(){
-        navigation.navigate('Status');
+        navigation.navigate('Panchagarh');
     }
 
     return (
@@ -55,7 +53,8 @@ function CreateRoom({navigation,route}) {
                 <Text style={styles.BodyText}> Room  Details : </Text>
                 <AppInputText  icon='home'
                 placeholder={RoomName}
-                onChangeText={text=> setName(text)}/>
+                value={RoomName}
+                onChangeText={text=> setRoomname(text)}/>
                 {/* <AppInputText  icon='home'
                 placeholder="Room Category"
                 
@@ -63,23 +62,23 @@ function CreateRoom({navigation,route}) {
                 <AppInputText  icon='home'
                 placeholder="Aircondition "
                 
-                onChangeText={text=> setAc(text)}/>
+                onChangeText={text=> setAc(text)}/> */}
                 <AppInputText  icon='home'
                 placeholder="Bed Category "
                 
-                onChangeText={text=> setBed(text)}/>  */}
+                onChangeText={text=> setCategory(text)}/> 
                 <View style={{flexDirection:'row'}}>
                     <View style={{padding:10}}>
                         <Text> Number of Bed: </Text>
-                        <NumericInput minValue={1} onChange={text=> setNumofbed(text)}
+                        <NumericInput minValue={1} onChange={text=> setBed(text)}
                         
                         />    
                     </View>
-                    <View style={{padding:10}} >
+                    {/* <View style={{padding:10}} >
                         <Text> Capasity </Text>
                         <NumericInput minValue={1} onChange={text=> setCapasity(text)} 
                      />    
-                    </View>
+                    </View> */}
                 </View>  
         
             </View>
@@ -88,7 +87,7 @@ function CreateRoom({navigation,route}) {
             <AppButton
                     ButtonName="Change Room config."
                     color="#000"
-                    onPress={()=>navigation.navigate('Panchagarh')}
+                   onPress={()=>addRoom()}
                     />
                 {/* <AppButton
                     ButtonName="Add Room"
