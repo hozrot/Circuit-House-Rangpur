@@ -19,6 +19,7 @@ function TestCalender(props) {
             startDate: new Date(2022, 2, 15),
             endDate: new Date(2022, 2, 15),
             color: '#6a5acd',
+            
             // ... more properties if needed,
           },
         

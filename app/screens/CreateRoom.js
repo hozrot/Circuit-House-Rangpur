@@ -53,7 +53,6 @@ function CreateRoom({navigation,route}) {
                 <Text style={styles.BodyText}> Room  Details : </Text>
                 <AppInputText  icon='home'
                 placeholder={RoomName}
-                value={RoomName}
                 onChangeText={text=> setRoomname(text)}/>
                 {/* <AppInputText  icon='home'
                 placeholder="Room Category"

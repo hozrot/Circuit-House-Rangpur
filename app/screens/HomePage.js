@@ -1,7 +1,7 @@
 import React from 'react';
-import { View ,StyleSheet,Text, TouchableOpacity} from 'react-native';
+import { View ,StyleSheet,Text,ScrollView, TouchableOpacity} from 'react-native';
 import Icon from '../component/Icon';
-import CalendarStrip from 'react-native-calendar-strip';
+
 
 
 function HomePage( {navigation} ) {
@@ -19,194 +19,358 @@ function HomePage( {navigation} ) {
         return date.isoWeekday() === 5; // disable Saturdays
       }
     return (
+        
         <View style={styles.Container}>
-            <View>
-                <Text style={{fontWeight:'bold',textAlign:'center',padding:10,fontSize:20}}>Circuit House </Text>
-            </View>
-            <View style={styles.Room}>
-                    <TouchableOpacity style={styles.RoomName}
-                    onPress={() => navigation.navigate('Room',fstRoom)} >
+        <View style={styles.RoomColumn}>
+        
+                <View style={styles.RoomName}>
+                  
+                      <Text style={{alignSelf:'center'}}> Calender  </Text>
                       
-                          <Text style={{alignSelf:'center',fontWeight:'bold'}}>{fstRoom} </Text>
-                          <View style={styles.RoomIcon}>
-                          
-                            <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
-                            <Text style={{fontSize:12}}>02</Text>
-                            <Icon name={"human-male-male"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
-                          
-                         </View>
-                      
-                    </TouchableOpacity>
-                    <View style={styles.Calender}>
-                        <CalendarStrip
-                        scrollable
-                        
-                        style={{height:80, padding:10}}
-                        calendarColor={'#fff'}
-                        dateNumberStyle={{color: '#000'}}
-                        dateNameStyle={{color: '#000'}}
-                        iconContainer={{flex: .001}}
-                        datesBlacklist={datesBlacklistFunc}
-                        onDateSelected={() => navigation.navigate('Entry',fstRoom)}
-                        />
-                    </View>
-                
-            </View>
-
-            <View style={styles.Room}>
-                    <TouchableOpacity style={styles.RoomName}
-                    onPress={() => navigation.navigate('Room',sndRoom)} >
-                      
-                          <Text style={{alignSelf:'center',fontWeight:'bold'}}> {sndRoom} </Text>
-                          <View style={styles.RoomIcon}>
-                          
-                            <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
-                            <Text style={{fontSize:12}}>01</Text>
-                            <Icon name={"account"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
-                          
-                         </View>
-                      
-                    </TouchableOpacity>
-                    <View style={styles.Calender}>
-                        <CalendarStrip
-                        scrollable
-                        
-                        style={{height:80, padding:10}}
-                        calendarColor={'#fff'}
-                        
-                        
-                        
-                        dateNumberStyle={{color: '#000'}}
-                        dateNameStyle={{color: '#000'}}
-                        iconContainer={{flex: .001}}
-                        datesBlacklist={datesBlacklistFunc}
-                        onDateSelected={() => navigation.navigate('Entry',sndRoom)}
-                        />
-                    </View>
-                
-            </View>
-
-            <View style={styles.Room}>
-                    <TouchableOpacity style={styles.RoomName}
-                    onPress={() => navigation.navigate('Room',trdRoom)} >
-                      
-                          <Text style={{alignSelf:'center',fontWeight:'bold'}}> {trdRoom}</Text>
-                          <View style={styles.RoomIcon}>
-                          
-                            <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
-                            <Text style={{fontSize:12}}>02</Text>
-                            <Icon name={"human-male-male"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
-                          
-                         </View>
-                      
-                    </TouchableOpacity>
-                    <View style={styles.Calender}>
-                        <CalendarStrip
-                        scrollable
-                        
-                        style={{height:80, padding:10}}
-                        calendarColor={'#fff'}
-                        
-                        
-                        
-                        dateNumberStyle={{color: '#000'}}
-                        dateNameStyle={{color: '#000'}}
-                        iconContainer={{flex: .001}}
-                        datesBlacklist={datesBlacklistFunc}
-                        onDateSelected={() => navigation.navigate('Entry',trdRoom)}
-                        />
-                    </View>
-                
-            </View>
-
-            <View style={styles.Room}>
-                    <TouchableOpacity style={styles.RoomName}
-                    onPress={() => navigation.navigate('Room',frtRoom)} >
-                      
-                          <Text style={{alignSelf:'center',fontWeight:'bold'}}> {frtRoom} </Text>
-                          <View style={styles.RoomIcon}>
-                          
-                            <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
-                            <Text style={{fontSize:12}}>01</Text>
-                            <Icon name={"account"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
-                          
-                         </View>
-                      
-                    </TouchableOpacity>
-                    <View style={styles.Calender}>
-                        <CalendarStrip
-                        scrollable
-                        
-                        style={{height:80, padding:10}}
-                        calendarColor={'#fff'}
-                        
-                        
-                        
-                        dateNumberStyle={{color: '#000'}}
-                        dateNameStyle={{color: '#000'}}
-                        iconContainer={{flex: .001}}
-                        datesBlacklist={datesBlacklistFunc}
-                        onDateSelected={() => navigation.navigate('Entry',frtRoom)}
-                        />
-                    </View>
-                
-            </View>
-            
-           
-            
-
-
-            
-            {/* <View style={styles.Calender}>
-                <View style={styles.Element}>
-               
+                  
                 </View>
-            </View> */}
-
-
-
-
-
-            {/* <View style={styles.Header}>
-                <Icon name={"warehouse"} backgroundColor={'#a3d9c9'} iconColor={'#6a5acd'} size={85}/> 
-                <Text style={styles.HeaderText} > Welcome to {"\n"} Circuit House   </Text>
-            </View> */}
-            {/* <View style={styles.Button}>
-
-                <Button 
-                 title="Go "
-                 color="#fff"
-                 onPress={() => navigation.navigate('Status')}
-                />
-            </View> */}
-            {/* <View style={styles.Footer}>
-            
+                <TouchableOpacity style={styles.RoomName}
+                onPress={() => navigation.navigate('Room',fstRoom)} >
+                  
+                      <Text style={{alignSelf:'center',fontWeight:'bold'}}>{fstRoom} </Text>
+                      <View style={styles.RoomIcon}>
+                      
+                        <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
+                        <Text style={{fontSize:12}}>02</Text>
+                        <Icon name={"human-male-male"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
+                      
+                     </View>
+                  
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.RoomName}
+                onPress={() => navigation.navigate('Room',sndRoom)} >
+                  
+                      <Text style={{alignSelf:'center',fontWeight:'bold'}}>{sndRoom} </Text>
+                      <View style={styles.RoomIcon}>
+                      
+                        <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
+                        <Text style={{fontSize:12}}>02</Text>
+                        <Icon name={"human-male-male"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
+                      
+                     </View>
+                  
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.RoomName}
+                onPress={() => navigation.navigate('Room',trdRoom)} >
+                  
+                      <Text style={{alignSelf:'center',fontWeight:'bold'}}>{trdRoom} </Text>
+                      <View style={styles.RoomIcon}>
+                      
+                        <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
+                        <Text style={{fontSize:12}}>02</Text>
+                        <Icon name={"human-male-male"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
+                      
+                     </View>
+                  
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.RoomName}
+                onPress={() => navigation.navigate('Room',frtRoom)} >
+                  
+                      <Text style={{alignSelf:'center',fontWeight:'bold'}}>{frtRoom} </Text>
+                      <View style={styles.RoomIcon}>
+                      
+                        <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
+                        <Text style={{fontSize:12}}>02</Text>
+                        <Icon name={"human-male-male"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
+                      
+                     </View>
+                  
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.RoomName}
+                onPress={() => navigation.navigate('Room',fifRoom)} >
+                  
+                      <Text style={{alignSelf:'center',fontWeight:'bold'}}>{fifRoom} </Text>
+                      <View style={styles.RoomIcon}>
+                      
+                        <Icon name={"bed"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={35}/>
+                        <Text style={{fontSize:12}}>02</Text>
+                        <Icon name={"human-male-male"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={30}/>
+                      
+                     </View>
+                  
+                </TouchableOpacity>
                 
-            </View> */}
+            
+       
+         
+         </View> 
+        <View style={styles.Calender}> 
+        <ScrollView horizontal >
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Sat</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>23</Text>
 
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+            
+            
+    
+
+         
+            
+            
+
+            </View>
+            <View  >
+            <View style={styles.BoxColumn}>
+                <Text>Sun</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>24</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Mon</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>25</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+            
+
+            </View>
+            <View>
+            <View style={styles.BoxColumn}>
+                <Text>Tue</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>26</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+            </View>
+            <View  >
+            <View style={styles.BoxColumn}>
+                <Text>Wed</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>27</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View>
+            <View style={styles.BoxColumn}>
+                <Text>Thu</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>28</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Fri</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>1</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Sat</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>2</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Sun</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>3</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Mon</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>4</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Tue</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>5</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Thr</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}} >6</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Fri</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>7</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Sat</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>8</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Sun</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>9</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Mon</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>10</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+            
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Tue</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>11</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fstRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',sndRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',trdRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',frtRoom)}/>
+            <TouchableOpacity style={styles.BoxColumn} onPress={() => navigation.navigate('Entry',fifRoom)}/>
+
+            </View>
+            <View >
+            <View style={styles.BoxColumn}>
+                <Text>Wed</Text>
+                <Text style={{alignSelf:'center',fontWeight:'bold',fontSize:25}}>12</Text>
+
+            </View>
+            <TouchableOpacity style={styles.BoxColumn}/>
+            <TouchableOpacity style={styles.BoxColumn}/>
+            <TouchableOpacity style={styles.BoxColumn}/>
+            <TouchableOpacity style={styles.BoxColumn}/>
+            <TouchableOpacity style={styles.BoxColumn}/>
+            
+
+            </View>
+        
+        
+
+        </ScrollView>
         </View>
+
+
+    </View>
     );
 }
 
 const styles = StyleSheet.create({
+
     Container:{
-        flex: 1,
-        backgroundColor: '#F4F8F9',
-        
+        flex:1,
+        flexDirection:'row'
+
     },
-    Room:{
+    RoomColumn:{
+        flex:.25,
         backgroundColor: '#fff',
-        flexDirection:'row',
-        height:80,
-        justifyContent:'center',
-        alignItems:'center',
-        
-        
 
     },
     RoomName:{
-        flex:.25,
-          
+         
+        height: 60, 
+        borderWidth: .30,
+        justifyContent:'center',
+        alignItems:'center',
+        borderColor:'#C5D3DA',
+
     },
     RoomIcon:{
         flexDirection:'row',
@@ -215,46 +379,22 @@ const styles = StyleSheet.create({
         
 
     },
+    
     Calender:{
         flex:.80,
-        
+        backgroundColor: '#fff',
 
     },
-    Element:{
-        flex:1,
-        height:50
-
-    },
-    Header:{
-        flex: 1,
+    BoxColumn:{
+        width: 50, 
+        height: 60, 
+        borderWidth: .50,
+        borderColor:'#C5D3DA',
         justifyContent:'center',
-        alignItems:'center',
-        
+        alignItems:'center'
 
     },
-    HeaderText:{
-        fontWeight:'800',
-        fontSize: 30,
-        textAlign: 'center'
-
-    },
-    Button:{
-        flex: .10,
-        backgroundColor:'#6a5acd',
-        justifyContent:'center',
-        alignItems:'center',
-        borderRadius: 50,
-        width:'60%',
-        
-        alignSelf: 'center'
-     
-    },
-   
-    Footer:{
-        flex: .50,
-        
-
-    },
+    
     
 })
 
