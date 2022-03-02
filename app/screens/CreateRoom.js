@@ -51,7 +51,7 @@ function CreateRoom({navigation,route}) {
             <View style={styles.FormElement} >
 
                 <Text style={styles.BodyText}> Room  Details : </Text>
-                <AppInputText  icon='home'
+                <AppInputText  icon='tools'
                 placeholder={RoomName}
                 onChangeText={text=> setRoomname(text)}/>
                 {/* <AppInputText  icon='home'
@@ -62,23 +62,23 @@ function CreateRoom({navigation,route}) {
                 placeholder="Aircondition "
                 
                 onChangeText={text=> setAc(text)}/> */}
-                <AppInputText  icon='home'
+                <AppInputText  icon='bed'
                 placeholder="Bed Category "
                 
                 onChangeText={text=> setCategory(text)}/> 
-                <View style={{flexDirection:'row'}}>
+                {/* <View style={{flexDirection:'row'}}>
                     <View style={{padding:10}}>
                         <Text> Number of Bed: </Text>
                         <NumericInput minValue={1} onChange={text=> setBed(text)}
                         
                         />    
                     </View>
-                    {/* <View style={{padding:10}} >
+                    <View style={{padding:10}} >
                         <Text> Capasity </Text>
                         <NumericInput minValue={1} onChange={text=> setCapasity(text)} 
                      />    
-                    </View> */}
-                </View>  
+                    </View>
+                </View>   */}
         
             </View>
 
