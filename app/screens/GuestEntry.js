@@ -26,14 +26,15 @@ function GuestEntry({navigation,route}) {
     //     setFromdate(currentDate);
     //     };
 
-        const RoomName= route.params;
+        const RoomName = route.params;
+        
 
         const [guestname,setGuestname]= useState("")
         const [designation,setDesignation]= useState("")
         const [address,setAddress]= useState("")
         const [phoneno,setPhone] =useState("")
         const [reference,setReference]=useState("")
-        const [vehicalsupport,setVehicalsupport]= useState("No")
+        const [vehicalsupport,setVehicalsupport]= useState("")
         const [numberofvehical,setNumberofvehical]= useState("")
         const [numberofguest,setNumberofguest] =useState("")
 
@@ -64,43 +65,31 @@ function GuestEntry({navigation,route}) {
             <ScrollView style={styles.Container}>
                 <View style={styles.Header}>
                     <Text style={styles.HeaderText}> {RoomName}</Text>
+                   
+                    
                 </View>
                     <View style={styles.Body}>
-                    {/* <View style={styles.timeEntry}>
-                    <View style={styles.FormElement} >
-        
-                    
-            
-                    </View>
-                    <View style={styles.FormElement} >
-        
-                        
-                    </View>
-                    </View> */}
                 
-
-                            <View style={styles.FormElement} >
-            
-                                
-                                <View style={styles.GuestEntry} >
-                                    <Text style={{fontWeight:'bold',fontSize:18}}>
-                                    Number of Guest
+                         <View style={styles.FormElement} >                              
+                                {/* <View style={styles.GuestEntry} >
+                                    <Text style={{fontWeight:'bold',fontSize:16,paddingRight:45}}>
+                                    Number of Guest   
                                     </Text>
                                     <NumericInput minValue={1} 
-                                        totalWidth={180} 
-                                        totalHeight={40} 
+                                        totalWidth={160} 
+                                        totalHeight={45} 
                                         rounded 
                                         textColor='#000' 
-                                        iconStyle={{ color: '#fff' }} 
-                                        rightButtonBackgroundColor='#6a5acd' 
-                                        leftButtonBackgroundColor='#6a5acd'
+                                        iconStyle={{ color: '#000' }} 
+                                        rightButtonBackgroundColor='#9BC76E' 
+                                        leftButtonBackgroundColor='#9BC76E'
                                         
                                         onChange={text=> setNumberofguest(text)} />    
-                                </View>
+                                </View> */}
                     
                                 <AppInputText  icon='account-star-outline'
                                 placeholder="Guest Full Name"
-                                color='#6a5acd'
+                                color='#C8C4BD'
                                 onChangeText={text=> setGuestname(text)}
                                 />
                                 <AppInputText  icon='shield-account'
@@ -123,37 +112,46 @@ function GuestEntry({navigation,route}) {
                                 <AppInputText  icon='arrow-decision-outline'
                                 placeholder=" Reference "
                                 onChangeText={text=> setReference(text)}/> 
+                                
+                                <View style={styles.support}> 
+                                <View style={styles.supportText}>
                                 <AppInputText  icon='car'
                                 value={isEnabled ? "Yes" : "No"}
                                 onChange={text=> setVehicalsupport(text)}/> 
-                                
-                                <View style={styles.support}>
-                                    <Text style={{fontSize:15,fontWeight:'bold',padding:10}}> Vehical Support </Text>
-                                    <Switch
+                                </View>
+                                <View style={styles.supportSwitch}>
+                                <Switch
                                         trackColor={{ false: "#767577", true: "#81b0ff" }}
                                         thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
                                         ios_backgroundColor="#3e3e3e"
                                         onValueChange={toggleSwitch}
                                         value={isEnabled}
                                        /> 
-
                                 </View>
+                                
+                               
+                                </View>
+                                
+                                
+                               {isEnabled ?
                                 <View style={styles.Vehical} >
-                                <Icon name={"car"} backgroundColor={'#a3d9c9'} iconColor={'#6a5acd'} size={65}/>
+                                 <Icon name={"car"} backgroundColor={'#fff'} iconColor={'#6a5acd'} size={55}/>
                                     
                                     <NumericInput minValue={0} 
                                    
                                     totalWidth={130} 
-                                    totalHeight={40} 
+                                    totalHeight={50} 
                                     rounded 
                                     textColor='#000' 
                                     iconStyle={{ color: '#fff' }} 
-                                    rightButtonBackgroundColor='#6a5acd' 
-                                    leftButtonBackgroundColor='#6a5acd'
+                                    rightButtonBackgroundColor='#9BC76E' 
+                                    leftButtonBackgroundColor='#9BC76E'
                                     onChange={text=> setNumberofvehical(text)} />    
-                                </View>
+                                </View> : null}
 
-                                
+                                {/* <View> 
+                                    <Text style={{fontWeight:'bold', paddingTop:15}}> Do you want to select another room for this Guest </Text>
+                                </View> */}
                         
                             </View>
                 
@@ -161,7 +159,7 @@ function GuestEntry({navigation,route}) {
                
                         <View style={styles.Footer}>
                         <Button 
-                            title="Book This Room"
+                            title="Save"
                             color="#fff"
                             onPress={() => addGuest()}
                             />
@@ -178,7 +176,7 @@ function GuestEntry({navigation,route}) {
     const styles = StyleSheet.create({
         Container:{
             flex: 1,
-            backgroundColor: '#a3d9c9',
+            backgroundColor: '#F0EEF4',
             
         },
         timeEntry:{
@@ -186,13 +184,21 @@ function GuestEntry({navigation,route}) {
 
         },
         support:{
+            flex:1,
             flexDirection:'row',
-            justifyContent:'space-around'
+            
         },
+        supportText:{
+            flex:.80
 
+        },
+        supportSwitch:{
+            flex:.20,
+            paddingTop:8
+        },
         Header:{
             
-            backgroundColor: '#a3d9c9',
+            backgroundColor: '#F0EEF4',
             justifyContent:'center',
             alignItems:'center'
         },
@@ -227,10 +233,13 @@ function GuestEntry({navigation,route}) {
 
         },
         GuestEntry:{
-            
+            backgroundColor: '#fff',
             justifyContent:'center',
             alignItems:'center',
-            margin:25
+            borderRadius:25,
+            flexDirection:'row',
+            marginVertical:3,
+            
             
 
 
@@ -275,8 +284,8 @@ function GuestEntry({navigation,route}) {
             justifyContent:'center',
             alignItems:'center',
             backgroundColor: '#6a5acd',
-            margin: 30,
-            borderRadius:30
+            margin: 0,
+            marginTop:30
     
         }, 
     
